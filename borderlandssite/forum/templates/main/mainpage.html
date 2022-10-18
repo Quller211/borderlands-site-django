@@ -16,7 +16,7 @@
             {{ el }}<br>
         {% endfor %}
         <button class="btn btn-primary" type = 'submit'>Войти</button>
-        <a href = ''>Регистрация</a>
+        <a href = '{% url "register" %}' class="btn btn-warning">Регистрация</a>
     </form>
     {% endblock %}
 </body>
