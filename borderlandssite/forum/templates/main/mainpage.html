@@ -12,6 +12,7 @@
 <body>
     {% block content %}
     <form class = 'col-3' method = 'post'>
+        {% csrf_token %}
         {% for el in form %}
             {{ el }}<br>
         {% endfor %}

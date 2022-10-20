@@ -1,0 +1,13 @@
+{% extends 'main/mainpage.html' %}
+
+{% block title %}Форум Borderlands{% endblock %}
+
+{% block content %}
+
+    {% for item in data %}
+        {{ item.title }}<br>
+        {{ item.news_text }}
+    {% endfor %}
+
+{% endblock %}
+
