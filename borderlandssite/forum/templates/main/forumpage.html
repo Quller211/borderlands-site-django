@@ -3,11 +3,19 @@
 {% block title %}Форум Borderlands{% endblock %}
 
 {% block content %}
+    <div class = 'forum'>
+        <ul>
+            <li class = 'dropdownmenu'>Новости</li>
+            <li class = 'dropdownmenu'>Патчи</li>
+            <li class = 'dropdownmenu'>Галерея</li>
+            <li class = 'dropdownmenu'>О нас</li>
+            <li class = 'dropdownmenu'>Выход</li>
+        </ul>
+        {% for item in data %}
+            {{ item.title }}<br>
+            {{ item.news_text }}
+        {% endfor %}
 
-    {% for item in data %}
-        {{ item.title }}<br>
-        {{ item.news_text }}
-    {% endfor %}
-
+    </div>
 {% endblock %}
 

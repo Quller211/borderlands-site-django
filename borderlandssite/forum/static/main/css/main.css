@@ -1,3 +1,14 @@
+body{
+    background-image: url(../img/bg-border.jpg);
+    background-size: cover;
+    background-attachment: local;
+    color: white;
+}
+
+.forum{
+    text-align: center;
+}
+
 .col-3{
     position: absolute;
     text-align: center;
@@ -5,4 +16,17 @@
     right:0;
     margin: 0 auto;
     top: 30%;
+}
+
+
+.dropdownmenu{
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 10px;
+    vertical-align: top;
+    text-align: center;
+    font-size: 30px;
+    top: 100px;
+    margin: 15px;
 }
