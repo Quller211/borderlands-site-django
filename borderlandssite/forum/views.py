@@ -3,12 +3,12 @@ from .forms import LoginUserForm, RegisterUserForm
 from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, UpdateView, CreateView
 from django.urls import reverse_lazy
-from .models import News
+from .models import News, Borderlandspatch
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
     template_name = 'main/mainpage.html'
-    next_page = 'forumpage'
+    next_page = 'forumpagenews'
 
 class RegisterUser(CreateView):
     form_class = RegisterUserForm
@@ -17,4 +17,8 @@ class RegisterUser(CreateView):
 
 def forumpage(request):
     data = News.objects.all()
-    return render(request, 'main/forumpage.html', {'data' : data})
+    return render(request, 'main/forumpagenews.html', {'data' : data})
+
+def patch(request):
+    data = Borderlandspatch.objects.all()
+    return render(request, 'main/forumpagepatch.html', {'data': data})

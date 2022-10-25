@@ -11,6 +11,14 @@ class News(models.Model):
     def __str__(self):
         return self.title  
 
+class Borderlandspatch(models.Model):
+    title = models.CharField(max_length = 100)
+    description = models.TextField()
+    cat = models.ForeignKey('Category', on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.title
+
 class Category(models.Model):
     name = models.CharField(max_length = 100, db_index = True)
 

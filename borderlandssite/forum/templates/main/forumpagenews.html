@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форум Borderlands</title>
+    <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel = "stylesheet" href = "{% static 'main/css/main.css' %}">
+</head>
+</head>
+<body>
+    <div class = 'forum'>
+        <ul>
+            <li class = 'dropdownmenu'><a href = "{% url 'forumpagenews' %}">Новости</a></li>
+            <li class = 'patches'>Патчи
+            <div class = 'dropdown-content'>
+                    <a href = '#'>Borderlands 1</a>
+                    <a href = '{% url "forumpagepatch" %}'>Borderlands 2</a>
+                    <a href = '#'>Borderlands 3</a>
+                </div>
+            </li>
+            <li class = 'dropdownmenu'>Галерея</li>
+            <li class = 'dropdownmenu'>О нас</li>
+            <li class = 'dropdownmenu'>Обсуждения</li>
+            <li class = 'dropdownmenu'>Выход</li>
+        </ul>
+        {% block content %}
+            <div>
+                {% for item in data %}
+                    <div class = 'forum-content'>
+                        <p class = 'news-title'>{{ item.title }}</p>
+                        <p class = 'news-cat'>Категория: {{ item.cat }}</p>
+                    </div>
+                {% endfor %}  
+            </div>
+        {% endblock %}
+    </div>
+</body>
+</html>
