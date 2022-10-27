@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import LoginUserForm, RegisterUserForm
 from django.contrib.auth.views import LoginView
-from django.views.generic import ListView, UpdateView, CreateView
+from django.views.generic import ListView, UpdateView, CreateView, DetailView
 from django.urls import reverse_lazy
 from .models import News, Borderlandspatch
 
@@ -22,3 +22,7 @@ def forumpage(request):
 def patch(request):
     data = Borderlandspatch.objects.all()
     return render(request, 'main/forumpagepatch.html', {'data': data})
+
+class FullNews(DetailView):
+    model = News
+    template_name = 'main/news_detail.html'

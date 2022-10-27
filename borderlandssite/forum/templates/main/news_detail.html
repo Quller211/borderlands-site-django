@@ -1,0 +1,13 @@
+{% extends 'main/forumpagenews.html' %}
+
+{% block title %}Подробнее{% endblock %}
+
+{% block content %}
+    <div class = 'detail_news'>
+        <p class = 'news-detail-title'>{{ object.title }}</p>
+        <p class = 'news-detail-text'>{{ object.news_text }}</p>
+        <p class = 'news-detail-date'>{{ object.date}}</p>
+        {{ object.user }}
+        <p>{{ object.cat }}</p>
+    </div>
+{% endblock %} 
