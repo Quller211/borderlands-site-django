@@ -3,11 +3,12 @@
 {% block title %}Подробнее{% endblock %}
 
 {% block content %}
-    <div class = 'detail_news'>
-        <p class = 'news-detail-title'>{{ object.title }}</p>
-        <p class = 'news-detail-text'>{{ object.news_text }}</p>
-        <p class = 'news-detail-date'>{{ object.date}}</p>
-        {{ object.user }}
-        <p>{{ object.cat }}</p>
-    </div>
+    <table class = 'detail_news'>
+        <tr><td class = 'news-detail-title'>{{ object.title }}</td></tr>
+        <tr><td class = 'news-detail-text'>{{ object.news_text }}</td></tr>
+        <tr>
+            <td class = 'news-detail-date'>{{ object.date}} by {{ object.user }}</td>
+            <td class = 'news-detail-cat'>{{ object.cat }}</td>
+        </tr>
+    </table>
 {% endblock %} 

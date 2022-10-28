@@ -23,8 +23,13 @@ class Borderlandspatch(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse('forumpagepatch', kwargs = {'pk': self.pk})
+
 class Category(models.Model):
     name = models.CharField(max_length = 100, db_index = True)
 
     def __str__(self):
         return self.name
+
+    

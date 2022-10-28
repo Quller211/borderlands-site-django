@@ -16,9 +16,9 @@
             <li class = 'dropdownmenu'><a href = "{% url 'forumpagenews' %}">Новости</a></li>
             <li class = 'patches'>Патчи↓
                 <div class = 'dropdown-content'>
-                    <a href = '#'>Borderlands 1</a>
-                    <a href = '{% url "forumpagepatch" %}'>Borderlands 2</a>
-                    <a href = '#'>Borderlands 3</a>
+                    {% for patch in patches %}
+                        <a href = '{% url "forumpagepatch" patch.pk %}'>{{ patch.name }}</a>
+                    {% endfor %}
                 </div>
             </li>
             <li class = 'dropdownmenu'>Галерея</li>
