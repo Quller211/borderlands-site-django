@@ -7,4 +7,6 @@ urlpatterns = [
     path('forumpagenews/', views.forumpage, name = 'forumpagenews'),
     path('forumpagepatch/<int:pk>/', views.patch, name = 'forumpagepatch'),
     path('news/<int:pk>/', views.FullNews.as_view(), name = 'detailnews'),
-]
+    path('aboutus/', views.about, name = 'about'),
+    path('discuss/', views.discuss, name = 'discuss'),
+]   

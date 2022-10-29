@@ -112,3 +112,28 @@ a{
 .news-detail-cat{
    text-align: right;
 }
+
+.about_us{
+    position: relative;
+    top: 200px;
+    text-align: left;
+    font-size: 25px;
+}
+
+.discussions{
+    position: relative;
+    top: 200px;
+    width: 100%;
+}
+
+.cell{
+    background-color: grey;
+    text-align: left;
+    border-radius: 20px;
+    font-size: 25px;
+    padding: 25px;
+}
+
+.discuss-border{
+    border: 3px double purple;
+}

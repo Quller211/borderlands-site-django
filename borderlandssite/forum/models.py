@@ -26,10 +26,25 @@ class Borderlandspatch(models.Model):
     def get_absolute_url(self):
         return reverse('forumpagepatch', kwargs = {'pk': self.pk})
 
+class Discussions(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    field_text = models.TextField()
+    date = models.DateTimeField(auto_now = True)
+    distop = models.ForeignKey('DiscussionTopic', on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.user, self.date
+    
+
 class Category(models.Model):
     name = models.CharField(max_length = 100, db_index = True)
 
     def __str__(self):
         return self.name
 
+class DiscussionTopic(models.Model):
+    name = models.CharField(max_length = 150, db_index = True)
+
+    def __str__(self):
+        return self.name
     

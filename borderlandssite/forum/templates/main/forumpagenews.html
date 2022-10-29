@@ -22,8 +22,8 @@
                 </div>
             </li>
             <li class = 'dropdownmenu'>Галерея</li>
-            <li class = 'dropdownmenu'>О нас</li>
-            <li class = 'dropdownmenu'>Обсуждения</li>
+            <li class = 'dropdownmenu'><a href = "{% url 'about' %}">О нас</a></li>
+            <li class = 'dropdownmenu'><a href = '{% url "discuss" %}'>Обсуждения</a></li>
             <li class = 'dropdownmenu'>Выход</li>
         </ul>
         {% block content %}

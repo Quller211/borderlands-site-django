@@ -1,0 +1,11 @@
+{% extends 'main/forumpagenews.html' %}
+
+{% block title %}Патч{% endblock %}
+
+{% block content %}
+    <table class = 'discussions'>
+        {% for item in data %}
+            <tr class = 'discuss-border'><td class = 'cell'>{{ item.name }}</td></tr>
+        {% endfor %}
+    </table>
+{% endblock %}
