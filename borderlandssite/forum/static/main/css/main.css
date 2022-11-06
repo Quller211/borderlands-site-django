@@ -7,7 +7,7 @@ body{
 
 .forum{
     text-align: center;
-    width: 1500px;
+    width: 1700px;
     margin: 0 auto;
 }
 
@@ -134,6 +134,20 @@ a{
     padding: 25px;
 }
 
-.discuss-border{
-    border: 3px double purple;
+.discussion-topic{
+    font-size: 25px;
+    background-color: grey;
+    text-align: left;
+}
+
+.discussion-user{
+    font-size: 15px;
+}
+
+.discussion-date{
+    font-size: 15px;
+}
+
+.discussion-text{
+    font-size: 20px;
 }

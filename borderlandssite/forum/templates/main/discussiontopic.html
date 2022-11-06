@@ -1,0 +1,21 @@
+{% extends 'main/forumpagenews.html' %}
+
+{% block title %}Патч{% endblock %}
+
+{% block content %}
+    <div class = 'discussions'>
+        {% for item in data %}
+            <div class = 'discussion-topic'>
+                <div class = 'discussion-user'>{{ item.user }}</div>
+                <div class = 'discussion-text'>{{ item.field_text }}</div>
+                <div class = 'discussion-date'>{{ item.date }}</div>
+            </div>
+        {% endfor %}<br><br>
+        <form method = 'post'>
+            {% csrf_token %}
+            {{ form.field_text }}
+            <button type = 'submit'>Добавить запись</button>
+        </form>
+        
+    </div>
+{% endblock %}

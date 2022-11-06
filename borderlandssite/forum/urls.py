@@ -9,4 +9,5 @@ urlpatterns = [
     path('news/<int:pk>/', views.FullNews.as_view(), name = 'detailnews'),
     path('aboutus/', views.about, name = 'about'),
     path('discuss/', views.discuss, name = 'discuss'),
+    path('discuss/<int:pk>', views.discussiontopic, name = "discussiontopic"),
 ]   

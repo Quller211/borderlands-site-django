@@ -5,7 +5,9 @@
 {% block content %}
     <table class = 'discussions'>
         {% for item in data %}
-            <tr class = 'discuss-border'><td class = 'cell'>{{ item.name }}</td></tr>
+            <div class = 'discussions'>
+                <p class = 'cell'><a href = '{% url "discussiontopic" item.pk %}'>{{ item.name }}</a></p>
+            </div>
         {% endfor %}
     </table>
 {% endblock %}

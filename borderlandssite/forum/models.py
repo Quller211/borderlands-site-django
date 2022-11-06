@@ -33,8 +33,7 @@ class Discussions(models.Model):
     distop = models.ForeignKey('DiscussionTopic', on_delete = models.CASCADE)
 
     def __str__(self):
-        return self.user, self.date
-    
+        return self.field_text
 
 class Category(models.Model):
     name = models.CharField(max_length = 100, db_index = True)
@@ -48,3 +47,7 @@ class DiscussionTopic(models.Model):
     def __str__(self):
         return self.name
     
+class Commentary(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    text = models.TextField()
+    date = models.DateTimeField(auto_now = True)
