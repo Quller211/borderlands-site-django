@@ -9,12 +9,12 @@
                 <div class = 'discussion-user'>{{ item.user }}</div>
                 <div class = 'discussion-text'>{{ item.field_text }}</div>
                 <div class = 'discussion-date'>{{ item.date }}</div>
-            </div>
-        {% endfor %}<br><br>
+            </div><hr>
+        {% endfor %}
         <form method = 'post'>
             {% csrf_token %}
             {{ form.field_text }}
-            <button type = 'submit'>Добавить запись</button>
+            <div class = 'discussion-button'><button class = "btn btn-primary" type = 'submit'>Добавить запись</button></div>
         </form>
         
     </div>

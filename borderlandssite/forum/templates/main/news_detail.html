@@ -3,12 +3,26 @@
 {% block title %}Подробнее{% endblock %}
 
 {% block content %}
-    <table class = 'detail_news'>
-        <tr><td class = 'news-detail-title'>{{ object.title }}</td></tr>
-        <tr><td class = 'news-detail-text'>{{ object.news_text }}</td></tr>
-        <tr>
-            <td class = 'news-detail-date'>{{ object.date}} by {{ object.user }}</td>
-            <td class = 'news-detail-cat'>{{ object.cat }}</td>
-        </tr>
-    </table>
+    <div class = 'commentary'>
+        {% for item in data %}
+            <div class = 'detail_news'>
+                <div class = 'news-detail-title'>{{ item.title }}</div>
+                <div class = 'news-detail-text'>{{ item.news_text }}</div>
+                <div class = 'news-detail-date'>{{ item.date }} by {{ item.user }}</div>
+                <div class = 'news-detail-cat'>{{ item.cat }}</div>
+            </div><br><br>
+        {% endfor %}
+        <div class = 'discussion-topic'>
+            {% for commentary in com %}
+                <div class = 'discussion-user'>{{ commentary.user }}</div>
+                <div class = 'discussion-text'>{{ commentary.text }}</div>
+                <div class = 'discussion-date'>{{ commentary.date }}</div><hr>
+            {% endfor %}
+        </div>
+        <form method = 'post'>
+            {% csrf_token %}
+            {{ form.text }}
+            <div class = 'discussion-button'><button class = "btn btn-primary" type = 'submit'>Добавить комментарий</button></div>
+        </form>
+    </div>
 {% endblock %} 

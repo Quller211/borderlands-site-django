@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
-from .forms import LoginUserForm, RegisterUserForm, AddDiscussion
+from .forms import LoginUserForm, RegisterUserForm, AddDiscussion, CommentaryForm
 from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, UpdateView, CreateView, DetailView
 from django.urls import reverse_lazy
-from .models import Discussions, News, Borderlandspatch, Category, DiscussionTopic
+from .models import Discussions, News, Borderlandspatch, Category, DiscussionTopic, Commentary
 
 class LoginUser(LoginView):
     form_class = LoginUserForm
@@ -25,9 +25,25 @@ def patch(request, pk):
     patches = Category.objects.all()
     return render(request, 'main/forumpagepatch.html', {'data': data, 'patches' : patches})
 
-class FullNews(DetailView):
-    model = News
-    template_name = 'main/news_detail.html'
+
+def fullnews(request, pk):
+    patches = Category.objects.all()
+    data = News.objects.filter(id = pk)
+    com = Commentary.objects.filter(number_of_news_id = pk)
+    if request.method == 'POST': 
+        form = CommentaryForm(request.POST)
+        if form.is_valid():
+            addcom = form.save(commit = False)
+            addcom.user = request.user
+            addcom.number_of_news_id = pk
+            addcom.save()
+            return redirect('detailnews', pk = pk)
+    else:
+        form = CommentaryForm()
+    return render(request, 'main/news_detail.html', {'data': data, 'patches': patches, 'form': form, 'com': com})
+# class FullNews(DetailView):
+#     model = News
+#     template_name = 'main/news_detail.html'
 
 def about(request):
     patches = Category.objects.all()
@@ -41,11 +57,14 @@ def discuss(request):
 def discussiontopic(request, pk):
     patches = Category.objects.all()
     data = Discussions.objects.filter(distop_id = pk)
-    if request.method == 'POST':
+    if request.method == 'POST': 
         form = AddDiscussion(request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('discussiontopic')
+            adddis = form.save(commit = False)
+            adddis.user = request.user
+            adddis.distop_id = pk
+            adddis.save()
+            return redirect('discussiontopic', pk = pk)
     else:
         form = AddDiscussion()
     

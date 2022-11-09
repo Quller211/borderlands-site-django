@@ -12,8 +12,8 @@ class News(models.Model):
     def __str__(self):
         return self.title  
 
-    def get_absolute_url(self):
-        return reverse('detailnews', kwargs = {'pk': self.pk})
+    # def get_absolute_url(self):
+    #     return reverse('detailnews', kwargs = {'pk': self.pk})
 
 class Borderlandspatch(models.Model):
     title = models.CharField(max_length = 100)
@@ -35,6 +35,7 @@ class Discussions(models.Model):
     def __str__(self):
         return self.field_text
 
+
 class Category(models.Model):
     name = models.CharField(max_length = 100, db_index = True)
 
@@ -51,3 +52,7 @@ class Commentary(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     text = models.TextField()
     date = models.DateTimeField(auto_now = True)
+    number_of_news = models.ForeignKey('News', on_delete = models.CASCADE)
+
+    def __str__(self):
+        return self.text

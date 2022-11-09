@@ -21,7 +21,7 @@ class CommentaryForm(forms.ModelForm):
         model = Commentary
         fields = ['text']
         widgets = {
-            'text' : forms.Textarea(attrs = {'class' : 'form-control', 'placeholder' : 'Добавить запись', 'rows' : 3, 'cols' : 5}),
+            'text' : forms.Textarea(attrs = {'class' : 'form-control', 'placeholder' : 'Добавить комментарий', 'rows' : 3, 'cols' : 5}),
         }
 
 class AddDiscussion(forms.ModelForm):
